@@ -1,0 +1,319 @@
+// Override Bootstrap's Sass default variables
+//
+// Nearly all variables in Bootstrap are written with the `!default` flag.
+// This allows you to override the default values of those variables before
+// you import Bootstrap's source Sass files.
+//
+// Overriding the default variable values is the best way to customize your
+// CSS without writing _new_ styles. For example, you can either change
+// `$body-color` or write more CSS that override's Bootstrap's CSS like so:
+// `body { color: red; }`.
+
+
+//
+// Bring in Bootstrap
+//
+
+// Option 1
+//
+// Import all of Bootstrap's CSS
+
+// @import "bootstrap/scss/bootstrap";
+
+// Option 2
+//
+// Place variable overrides first, then import just the styles you need. Note that some stylesheets are required no matter what.
+
+// Toggle global options
+$enable-gradients: true;
+$enable-shadows: true;
+
+$offcanvas-box-shadow: 0 1rem 3rem rgba(0, 0, 0, .175);
+
+// Include functions first
+@import "bootstrap/scss/functions";
+
+// Customize some defaults
+$body-color: #333;
+$body-bg: #fff;
+$border-radius: .4rem;
+$success: #7952b3;
+
+// Required
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/variables-dark";
+@import "bootstrap/scss/maps";
+@import "bootstrap/scss/mixins";
+@import "bootstrap/scss/utilities";
+@import "bootstrap/scss/root";
+@import "bootstrap/scss/reboot";
+
+@import "bootstrap/scss/type";
+// @import "bootstrap/scss/images";
+@import "bootstrap/scss/containers";
+@import "bootstrap/scss/grid";
+@import "bootstrap/scss/tables";
+@import "bootstrap/scss/forms";
+@import "bootstrap/scss/buttons";
+@import "bootstrap/scss/transitions";
+@import "bootstrap/scss/dropdown";
+// @import "bootstrap/scss/button-group";
+// @import "bootstrap/scss/nav";
+// @import "bootstrap/scss/navbar"; // Requires nav
+// @import "bootstrap/scss/card";
+// @import "bootstrap/scss/breadcrumb";
+// @import "bootstrap/scss/accordion";
+// @import "bootstrap/scss/pagination";
+// @import "bootstrap/scss/badge";
+// @import "bootstrap/scss/alert";
+// @import "bootstrap/scss/progress";
+// @import "bootstrap/scss/list-group";
+@import "bootstrap/scss/close";
+// @import "bootstrap/scss/toasts";
+@import "bootstrap/scss/modal"; // Requires transitions
+// @import "bootstrap/scss/tooltip";
+@import "bootstrap/scss/popover";
+// @import "bootstrap/scss/carousel";
+// @import "bootstrap/scss/spinners";
+@import "bootstrap/scss/offcanvas"; // Requires transitions
+// @import "bootstrap/scss/placeholders";
+
+// Helpers
+// @import "bootstrap/scss/helpers";
+
+// Utilities
+@import "bootstrap/scss/utilities/api";
+
+@import "font-awesome/css/font-awesome.css";
+
+//
+// Custom styles
+//
+
+body {
+  background: #eaeaea;
+}
+
+$task-view-width: 1000px;
+
+.task-view {
+  width: $task-view-width;
+  position: absolute;
+  right: -$task-view-width;
+  top: 10px;
+  background-color: #fff;
+  border: 1px solid darkgray;
+  border-radius: 5px;
+  padding-top: 15px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+
+  input, select, textarea {
+    border-radius: 3px;
+    font-size: 15px;
+    padding: 5px 10px;
+  }
+
+  input, select{
+    height: 32px;
+  }
+
+  .mb-3 {
+    margin-bottom: 10px !important;
+  }
+  .form-label, p{
+    margin-bottom: 5px;
+    font-size: 15px;
+  }
+
+  &.opened {
+    right: 10px;
+    -webkit-animation: linear ;
+    -webkit-animation-name: run-open;
+    -webkit-animation-duration: 300ms;
+  }
+
+  &.closed {
+    right: -$task-view-width;
+    -webkit-animation: linear ;
+    -webkit-animation-name: run-close;
+    -webkit-animation-duration: 300ms;
+  }
+
+  @-webkit-keyframes run-open {
+    0% { right: -$task-view-width;}
+    50%{ right : -($task-view-width/2);}
+    100%{ right: 10px;}
+  }
+  @-webkit-keyframes run-close {
+    0% { right: 10px;}
+    50%{ right : -($task-view-width/2);}
+    100%{ right: -$task-view-width;}
+  }
+}
+
+.kaban {
+  padding-top: 10px;
+  .kaban-board {
+    background: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid darkgray;
+
+    .board-top {
+      align-items: flex-start;
+      justify-content: space-between;
+      display: flex;
+      padding-bottom: 10px;
+      .board-title {
+        display: flex;
+        flex-flow: wrap;
+        -moz-box-align: center;
+        align-items: center;
+        max-width: 90%;
+
+        h4 {
+          font-size: 16px;
+          font-weight: 600;
+          line-height: 24px;
+          cursor: default;
+          max-width: 100%;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          display: block;
+          margin: 0 7px ;
+
+        }
+
+        .board-items-count {
+          display: inline-block;
+          padding: 2px 5px;
+          font-size: 12px;
+          font-weight: 600;
+          line-height: 1;
+          border-radius: 20px;
+          background-color: var(--bgColor-neutral-muted,var(--color-neutral-muted,rgba(110,118,129,0.4)));
+          border: var(--borderWidth-thin,max(1px,0.0625rem)) solid var(--counter-borderColor,var(--color-counter-border));
+          color: var(--fgColor-muted,var(--color-fg-muted,#848d97));
+          flex-shrink: 0;
+        }
+      }
+
+      .estimate {
+        -moz-box-align: center;
+        align-items: center;
+        background-color: transparent;
+        border-width: 1px;
+        border-radius: 999px;
+        border-style: solid;
+        display: inline-flex;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 1;
+        white-space: nowrap;
+        border-color: var(--borderColor-default,var(--color-border-default,#30363d));
+        height: var(--base-size-20,20px);
+        padding: 0 var(--base-size-6,6px);
+        margin-right: 8px;
+        color: var(--fgColor-muted,var(--color-fg-muted,#848d97));
+      }
+
+
+      .title-pin {
+        border-width: 2px;
+        border-style: solid;
+        width: 16px;
+        height: 16px;
+        border-radius: 8px;
+        flex-shrink: 0;
+
+        &.backlog {
+          background-color: var(--bgColor-success-muted,var(--color-success-subtle,rgba(46,160,67,0.15)));
+          border-color: var(--bgColor-success-emphasis,var(--color-success-emphasis,#238636));
+        }
+        &.ready {
+          background-color: var(--bgColor-accent-muted,var(--color-accent-subtle,rgba(56,139,253,0.1)));
+          border-color: var(--bgColor-accent-emphasis,var(--color-accent-emphasis,#1f6feb));
+        }
+        &.in-progress {
+          background-color: var(--bgColor-attention-muted,var(--color-attention-subtle,rgba(187,128,9,0.15)));
+          border-color: var(--bgColor-attention-emphasis,var(--color-attention-emphasis,#9e6a03));
+        }
+        &.in-review {
+          background-color: var(--bgColor-done-muted,var(--color-done-subtle,rgba(163,113,247,0.1)));
+          border-color: var(--bgColor-done-emphasis,var(--color-done-emphasis,#8957e5));
+        }
+        &.done {
+          background-color: var(--bgColor-severe-muted, var(--color-severe-subtle, rgba(219, 109, 40, 0.1)));
+          border-color: var(--bgColor-severe-emphasis, var(--color-severe-emphasis, #bd561d));
+        }
+      }
+
+    }
+
+    .board-bottom {
+      padding-top: 10px;
+      align-items: flex-start;
+      display: flex;
+      justify-content: space-between;
+      .board-bottom-btn {
+        width: 80px;
+        padding-top: 10px;
+        cursor: pointer;
+        span {
+          font-size: 13px;
+        }
+      }
+    }
+  }
+  .kaban-task {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid lightgray;
+    p {
+      margin-bottom: 10px;
+    }
+    .kaban-task-top {
+      align-items: flex-start;
+      display: flex;
+      justify-content: space-between;
+      .kaban-task-proj {
+        align-items: flex-start;
+        display: flex;
+        span {
+          font-size: 14px;
+          margin-left: 5px;
+          line-height: 18px;
+          color: dimgray;
+        }
+      }
+      .fa {
+        cursor: pointer;
+      }
+    }
+    .kaban-task-title {
+      padding-top: 5px;
+      font-size: 16px;
+    }
+    .task-pin {
+      border-width: 2px;
+      border-style: solid;
+      width: 16px;
+      height: 16px;
+      border-radius: 8px;
+      flex-shrink: 0;
+      background-color: var(--bgColor-success-muted,var(--color-success-subtle,rgba(46,160,67,0.15)));
+      border-color: var(--bgColor-success-emphasis,var(--color-success-emphasis,#3fb950));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .task-pin-point {
+        width: 2px;
+        height: 2px;
+        border-radius: 1px;
+        background-color: #3fb950;
+
+      }
+    }
+  }
+}
