@@ -19,7 +19,7 @@ sbt "~app/fastLinkJS"
 #### - tab 3
 
 ```shell
-cd booker-ui
+cd app-ui
 #only has to be run once
 npm install
 yarn exec vite
