@@ -5,7 +5,7 @@
 #### - tab 1
 
 ```shell
-sbt "~bookerService/reStart"
+sbt "~web/reStart"
 ```
 
 ### 2. Start frontend
@@ -13,7 +13,7 @@ sbt "~bookerService/reStart"
 #### - tab 2
 
 ```shell
-sbt "~bookerUI/fastLinkJS"
+sbt "~app/fastLinkJS"
 ```
 
 #### - tab 3
@@ -26,30 +26,15 @@ yarn exec vite
 ```
 
 Then you can access the frontend at http://localhost:3000
-and login with user/pass: john/aaa or jane/aaa
-
-Once logged in you should see this screen:
-![](https://github.com/adrianfilip/reservation-booker/blob/master/Screenshots/MyReservationsPage.png?raw=true)
 
 ## II. Other commands
 
 ```shell
-sbtn "~bookerService/reStart"
+sbtn "~web/reStart"
 
-sbtn "~bookerUI/fastLinkJS"
+sbtn "~app/fastLinkJS"
 
-cd booker-ui
+cd app-ui
 yarn exec vite
 
-curl -X POST http://localhost:8090/login -H 'Content-Type:application/json' -d '{"username":"my_login","password":"my_password"}' | jq
-
-curl -v -X POST http://localhost:8090/login -H 'Content-Type:application/json' -d '{"username":"my_login","password":"my_password"}' | jq
-
-#ports
-lsof -PiTCP -sTCP:LISTEN
 ```
-
-## III. Other details
-
-This project is a Proof of Concept for Scala 3 + ZIO 2 + zio-http + Laminar so not all simplifications or refactors that
-can be done are done.
