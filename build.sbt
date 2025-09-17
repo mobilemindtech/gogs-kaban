@@ -2,7 +2,7 @@ import versions._
 
 ThisBuild / organization := "com.gogs"
 ThisBuild / name         := "gogs"
-ThisBuild / scalaVersion := "3.5.1"
+ThisBuild / scalaVersion := "3.5.2"
 ThisBuild / version      := "0.1.0"
 
 ThisBuild / usePipelining := true
