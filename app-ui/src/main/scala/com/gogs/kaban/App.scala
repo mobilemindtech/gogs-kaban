@@ -12,17 +12,16 @@ def useImport(obj: js.Object): Unit = ()
 //@JSImport("bootstrap", JSImport.Namespace)
 //@js.native private object Bootstrap extends js.Object
 
-
 @JSImport("stylesheets/styles.scss", JSImport.Namespace)
-@js.native private object Styles extends js.Object
-
+@js.native
+private object Styles extends js.Object
 
 object App:
   lazy val node: HtmlElement =
     div(initRouting, Kaban.node)
 
 @main def main(args: String*): Unit =
-  //useImport(Bootstrap)
+  // useImport(Bootstrap)
 
   useImport(Styles)
   val container = dom.document.getElementById("app")

@@ -6,7 +6,7 @@ import com.gogs.util.util.*
 
 import scala.concurrent.{Future, Promise}
 
-object IssueApi :
+object IssueApi:
   def findAll(repo: Repository): Future[List[Issue]] =
     Promise[List[Issue]].delayed(200):
       mock.data.issues.filter(_.repository.id == repo.id)

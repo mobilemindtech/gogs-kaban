@@ -10,13 +10,14 @@ object util:
 
   import util.*
 
-  extension[T] (x: T)
-    def unit: Unit = ()
+  extension [T](x: T) def unit: Unit = ()
 
-  extension[T] (promise: Promise[T])
+  extension [T](promise: Promise[T])
     def delayed(delay: Long)(block: => T): Future[T] =
-      window.setTimeout({
-        () => promise.complete(Try(block))
-      }, delay)
+      window.setTimeout(
+        { () =>
+          promise.complete(Try(block))
+        },
+        delay
+      )
       promise.future
-

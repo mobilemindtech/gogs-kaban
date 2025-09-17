@@ -7,8 +7,7 @@ import org.scalajs.dom.HTMLElement
 
 object fontawesome:
 
-  extension [A <: HTMLElement](el: HtmlTag[A])
-    def fw = new FWElement(el)
+  extension [A <: HTMLElement](el: HtmlTag[A]) def fw = new FWElement(el)
 
   class FWElement[A <: HTMLElement](element: HtmlTag[A]) extends Style(element):
 
@@ -2952,7 +2951,8 @@ object fontawesome:
 
     def `fa-american-sign-language-interpreting` = add("fa-american-sign-language-interpreting")
 
-    def `fa-american-sign-language-interpreting`(m: => CustomReactiveElement*) = build("fa-american-sign-language-interpreting", m)
+    def `fa-american-sign-language-interpreting`(m: => CustomReactiveElement*) =
+      build("fa-american-sign-language-interpreting", m)
 
     def `fa-deafness` = add("fa-deafness")
 
@@ -3265,5 +3265,3 @@ object fontawesome:
     def `sr-only-focusable` = add("sr-only-focusable")
 
     def `sr-only-focusable`(m: => CustomReactiveElement*) = build("sr-only-focusable", m)
-
-

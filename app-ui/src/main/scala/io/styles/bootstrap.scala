@@ -5,16 +5,14 @@ import com.raquo.laminar.tags.HtmlTag
 import org.scalajs.dom
 import org.scalajs.dom.HTMLElement
 
-
 object bootstrap:
 
-  extension [A <: HTMLElement](el: HtmlTag[A])
-    def bs = new BSElement(el)
+  extension [A <: HTMLElement](el: HtmlTag[A]) def bs = new BSElement(el)
 
   class BSElement[A <: HTMLElement](element: HtmlTag[A]) extends Style(element):
 
     type Class = BSElement[A]
-    
+
     def container = add("container")
 
     def container(m: => CustomReactiveElement*) = build("container", m)

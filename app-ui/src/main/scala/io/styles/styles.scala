@@ -33,6 +33,3 @@ trait Style[A <: HTMLElement](element: HtmlTag[A]):
 case class elem_(el: HtmlTag[dom.html.Element], css: String):
   def apply(modifiers: => CustomReactiveElement*): ReactiveHtmlElement[dom.html.Element] =
     el(cls(css), modifiers)
-
-
-
