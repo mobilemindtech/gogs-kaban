@@ -11,7 +11,7 @@ object versions {
   val jwtCoreVersion       = "10.0.1"
   val zioTestVersion       = "2.1.9"
   val zioQuillVersion      = "4.8.4"
-  val mysqlVersion         = "8.0.33"
+  val mysqlVersion         = "8.4.0"
   val zioConfigVersion     = "4.0.2"
   val scalaShaVersion      = "2.0.2"
   val flywaydbVersion      = "10.19.0"
