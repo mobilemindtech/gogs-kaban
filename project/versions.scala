@@ -15,6 +15,6 @@ object versions {
   val zioConfigVersion     = "4.0.2"
   val scalaShaVersion      = "2.0.2"
   val flywaydbVersion      = "10.19.0"
-  val zioLoggingVersion    = "2.3.1"
+  val zioLoggingVersion    = "2.3.2"
   val chimneyVersion       = "1.5.0"
 }
