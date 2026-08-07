@@ -6,7 +6,7 @@ object versions {
   val laminarVersion       = "17.1.0"
   val frontrouteVersion    = "0.19.0"
   val fetchVersion         = "0.17.0"
-  val zioPreludeVersion    = "1.0.0-RC31"
+  val zioPreludeVersion    = "1.0.0-RC48"
   val scalaJavaTimeVersion = "2.6.0"
   val jwtCoreVersion       = "10.0.1"
   val zioTestVersion       = "2.1.9"
