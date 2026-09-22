@@ -1,6 +1,6 @@
 object versions {
   val zioVersion           = "2.1.11"
-  val zioHttpVersion       = "3.0.1"
+  val zioHttpVersion       = "3.11.6"
   val zioJsonVersion       = "0.7.3"
   val zioProcessVersion    = "0.7.2"
   val laminarVersion       = "17.1.0"
