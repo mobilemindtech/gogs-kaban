@@ -9,7 +9,7 @@ object versions {
   val zioPreludeVersion    = "1.0.0-RC31"
   val scalaJavaTimeVersion = "2.6.0"
   val jwtCoreVersion       = "10.0.1"
-  val zioTestVersion       = "2.1.9"
+  val zioTestVersion       = "2.1.27"
   val zioQuillVersion      = "4.8.4"
   val mysqlVersion         = "8.0.33"
   val zioConfigVersion     = "4.0.2"
